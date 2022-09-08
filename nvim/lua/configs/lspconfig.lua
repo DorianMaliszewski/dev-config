@@ -55,6 +55,7 @@ local on_attach = function(client, bufnr)
   nmap('<leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
+  nmap('<leader>cf', function() vim.lsp.buf.format({async = true}) end, '[C]ode [F]ormat')
 
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', vim.lsp.buf.format or vim.lsp.buf.formatting,
@@ -68,23 +69,12 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protoco
 
 local servers = { 'pyright', 'tsserver', 'eslint', 'rust_analyzer', 'sumneko_lua', 'html', 'jsonls', 'yamlls' }
 
-require('nvim-lsp-installer').setup {
-  ensure_installed = servers,
-  automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
-  ui = {
-    icons = {
-      server_installed = "✓",
-      server_pending = "➜",
-      server_uninstalled = "✗"
-    }
-  }
-
-}
-
 
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
-  debounce_text_changes = 250
+  debounce_text_changes = 150,
+  allow_incremental_sync = true,
+  update_on_insert = true
 }
 
 for _, lsp in ipairs(servers) do
@@ -130,7 +120,7 @@ lspconfig.eslint.setup {
     vim.cmd([[
       autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
     ]])
-    vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
+    vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
 
   end,
   flags = lsp_flags,
@@ -163,3 +153,13 @@ lspconfig.golangci_lint_ls.setup {
 }
 
 lspconfig.yamlls.setup {}
+
+lspconfig.tsserver.setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  capabilities = capabilities,
+  init_options = {
+    hostInfo = "neovim",
+    maxTsServerMemory = 4096,
+  }
+}
