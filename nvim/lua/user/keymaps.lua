@@ -29,14 +29,14 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<Tab>", ":bnext<CR>", opts)
+keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
 
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
 -- Close buffers
-keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
+keymap("n", "<C-w>", "<cmd>Bdelete<CR>", opts)
 
 -- Better paste
 keymap("v", "p", '"_dP', opts)
@@ -58,8 +58,7 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
---[[ keymap("n", "<leader>fp", ":Telescope projects<CR>", opts) ]]
-keymap("n", "<leader>fp", ":SearchSession<CR><CR>", opts)
+keymap("n", "<leader>fp", ":SearchSession<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
 -- Git
@@ -78,3 +77,17 @@ keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
 keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
+
+-- Block/Line moves
+keymap("n", "<A-Down>", ":MoveLine(1)<CR>", opts)
+keymap("n", "<A-Up>", ":MoveLine(-1)<CR>", opts)
+keymap("v", "<A-Down>", ":MoveBlock(1)<CR>", opts)
+keymap("v", "<A-Up>", ":MoveBlock(-1)<CR>", opts)
+
+-- Trouble
+keymap("n", "<leader>xx", "<cmd>TroubleToggle<cr>", opts)
+keymap("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", opts)
+keymap("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", opts)
+keymap("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", opts)
+keymap("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", opts)
+keymap("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", opts)

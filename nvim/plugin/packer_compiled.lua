@@ -154,6 +154,11 @@ _G.packer_plugins = {
     path = "/Users/dmaliszewski/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["move.nvim"] = {
+    loaded = true,
+    path = "/Users/dmaliszewski/.local/share/nvim/site/pack/packer/start/move.nvim",
+    url = "https://github.com/fedepujol/move.nvim"
+  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/Users/dmaliszewski/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -199,6 +204,11 @@ _G.packer_plugins = {
     path = "/Users/dmaliszewski/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-ts-autotag"] = {
+    loaded = true,
+    path = "/Users/dmaliszewski/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
+    url = "https://github.com/windwp/nvim-ts-autotag"
+  },
   ["nvim-ts-context-commentstring"] = {
     loaded = true,
     path = "/Users/dmaliszewski/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
@@ -243,6 +253,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/dmaliszewski/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
+  },
+  ["trouble.nvim"] = {
+    loaded = true,
+    path = "/Users/dmaliszewski/.local/share/nvim/site/pack/packer/start/trouble.nvim",
+    url = "https://github.com/folke/trouble.nvim"
   },
   ["vim-bbye"] = {
     loaded = true,
