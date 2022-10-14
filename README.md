@@ -17,5 +17,5 @@ rm -rf $HOME/.config/alacritty
 rm -f $HOME/.tmux.conf.local
 ln -s $HOME/.config/dev-config/nvim $HOME/.config/nvim
 ln -s $HOME/.config/dev-config/alacritty $HOME/.config/alacritty
-ln -s $HOME/.tmux.conf.local
+ln -s $HOME/.config/dev-config/tmux.conf.local $HOME/.tmux.conf.local
 ```

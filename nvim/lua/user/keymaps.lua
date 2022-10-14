@@ -60,6 +60,7 @@ keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":SearchSession<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+keymap("n", "<leader>fe", ":Telescope projects<CR>", opts)
 
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
@@ -91,3 +92,11 @@ keymap("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", opts)
 keymap("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", opts)
 keymap("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", opts)
 keymap("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", opts)
+
+-- Spectre
+keymap("n", "<leader>S", "<cmd>lua require('spectre').open()<CR>", opts)
+-- search current word
+keymap("n", "<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", opts)
+keymap("v", "<leader>s", "<esc>:lua require('spectre').open_visual()<CR>", opts)
+-- search in current file
+keymap("n", "<leader>sp", "viw:lua require('spectre').open_file_search()<cr>", opts)

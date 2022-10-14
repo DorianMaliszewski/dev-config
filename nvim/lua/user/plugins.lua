@@ -58,6 +58,7 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	use({ "catppuccin/nvim", as = "catppuccin" })
+	use({ "folke/lsp-colors.nvim" })
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
@@ -71,9 +72,12 @@ return packer.startup(function(use)
 	use({ "L3MON4D3/LuaSnip" }) --snippet engine
 	use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
 
+	-- Mason
+	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
+
 	-- LSP
 	use({ "neovim/nvim-lspconfig" }) -- enable LSP
-	use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
 	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
 	use({ "RRethy/vim-illuminate" })
 
@@ -96,7 +100,6 @@ return packer.startup(function(use)
 
 	-- Session saving
 	use("rmagatti/auto-session")
-	use("rmagatti/session-lens")
 
 	-- Auto tag close
 	use("windwp/nvim-ts-autotag")
@@ -106,6 +109,9 @@ return packer.startup(function(use)
 
 	-- Trouble
 	use("folke/trouble.nvim")
+
+	-- Spectre
+	use("windwp/nvim-spectre")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
