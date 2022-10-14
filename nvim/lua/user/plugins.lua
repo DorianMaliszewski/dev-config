@@ -60,6 +60,9 @@ return packer.startup(function(use)
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use({ "folke/lsp-colors.nvim" })
 
+	-- Coc
+	use({ "neoclide/coc.nvim", branch = "release" })
+
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
 	use({ "hrsh7th/cmp-buffer" }) -- buffer completions

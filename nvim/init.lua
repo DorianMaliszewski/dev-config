@@ -3,7 +3,7 @@ require("user.keymaps")
 require("user.plugins")
 require("user.autocommands")
 require("user.colorscheme")
-require("user.cmp")
+--[[ require("user.cmp") ]]
 require("user.telescope")
 require("user.treesitter")
 require("user.autopairs")
@@ -17,6 +17,6 @@ require("user.project")
 require("user.impatient")
 require("user.illuminate")
 require("user.indentline")
-require("user.lsp")
-require("user.dap")
+--[[ require("user.lsp") ]]
+--[[ require("user.dap") ]]
 require("user.trouble")
