@@ -61,12 +61,17 @@ return packer.startup(function(use)
 	use({ "folke/lsp-colors.nvim" })
 
 	-- cmp plugins
-	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
-	use({ "hrsh7th/cmp-buffer" }) -- buffer completions
-	use({ "hrsh7th/cmp-path" }) -- path completions
-	use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions
-	use({ "hrsh7th/cmp-nvim-lsp" })
-	use({ "hrsh7th/cmp-nvim-lua" })
+	--[[ use({ "hrsh7th/nvim-cmp" }) -- The completion plugin ]]
+	--[[ use({ "hrsh7th/cmp-buffer" }) -- buffer completions ]]
+	--[[ use({ "hrsh7th/cmp-path" }) -- path completions ]]
+	--[[ use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions ]]
+	--[[ use({ "hrsh7th/cmp-nvim-lsp" }) ]]
+	--[[ use({ "hrsh7th/cmp-nvim-lua" }) ]]
+	use({
+		"ms-jpq/coq_nvim",
+		branch = "coq",
+	})
+	use({ "ms-jpq/coq.artifacts", branch = "artifacts" })
 
 	-- snippets
 	use({ "L3MON4D3/LuaSnip" }) --snippet engine
