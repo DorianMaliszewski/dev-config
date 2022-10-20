@@ -1,6 +1,8 @@
 {
   "javascript.suggest.autoImports": true,
   "typescript.suggest.autoImports": true,
+  "tsserver.log": "verbose",
+  "tsserver.ignoreLocalTsserver": true,
   "json.format.enable": true,
   "html.format.enable": true
 }
