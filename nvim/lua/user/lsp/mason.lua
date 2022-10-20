@@ -1,8 +1,16 @@
+local mason_ok, mason = pcall(require, "mason")
+local mason_lspconfig_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
+local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+
+if not mason_ok or not mason_lspconfig_ok or not lspconfig_status_ok then
+	return
+end
+
 local servers = {
 	"sumneko_lua",
 	"cssls",
 	"html",
-  "eslint",
+	"eslint",
 	"tsserver",
 	"pyright",
 	"bashls",
@@ -27,16 +35,8 @@ local settings = {
 	max_concurrent_installers = 4,
 }
 
-require("mason").setup(settings)
-require("mason-lspconfig").setup({
-	ensure_installed = servers,
-	automatic_installation = true,
-})
-
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status_ok then
-	return
-end
+mason.setup(settings)
+mason_lspconfig.setup()
 
 local opts = {}
 
