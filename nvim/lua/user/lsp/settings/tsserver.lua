@@ -1,14 +1,12 @@
 return {
 	init_options = {
 		hostInfo = "neovim",
-		maxTsServerMemory = 8096,
-		tsserver = {
-			logVerbosity = "verbose",
-			trace = "verbose",
-			logDirectory = "/tmp/tslog.manual.log",
-		},
-		preferences = {
-			allowIncompleteCompletions = true,
+		maxTsServerMemory = 4096,
+		cmd = {
+			"typescript-language-server",
+			"--stdio",
+			"--tsserver-path",
+			"/Users/Users/dmaliszewski/Library/pnpm/global/5/node_modules/typescript/lib/tsserver.js",
 		},
 	},
 }
