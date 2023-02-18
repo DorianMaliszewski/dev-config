@@ -6,7 +6,7 @@ return {
 	cmd = {
 		"typescript-language-server",
 		"--stdio",
-		--[[ "--tsserver-path", ]]
-		--[[ "/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js", ]]
+		"--tsserver-path",
+		"/Users/dmaliszewski/Library/pnpm/global/5/node_modules/typescript/lib/tsserver.js",
 	},
 }

@@ -98,9 +98,6 @@ return packer.startup(function(use)
 	use({ "rcarriga/nvim-dap-ui" })
 	use({ "ravenxrz/DAPInstall.nvim" })
 
-	-- Session saving
-	use("rmagatti/auto-session")
-
 	-- Auto tag close
 	use("windwp/nvim-ts-autotag")
 
