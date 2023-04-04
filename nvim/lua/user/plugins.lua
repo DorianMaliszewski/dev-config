@@ -57,8 +57,9 @@ return packer.startup(function(use)
 	use({ "lukas-reineke/indent-blankline.nvim" })
 
 	-- Colorschemes
-	use({ "catppuccin/nvim", as = "catppuccin" })
+	--[[ use({ "catppuccin/nvim", as = "catppuccin" }) ]]
 	use({ "folke/lsp-colors.nvim" })
+	use("EdenEast/nightfox.nvim") -- Packer
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
@@ -82,8 +83,14 @@ return packer.startup(function(use)
 	use({ "RRethy/vim-illuminate" })
 
 	-- Telescope
-	use({ "nvim-telescope/telescope.nvim" })
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	--[[ use({ "nvim-telescope/telescope.nvim" }) ]]
+	--[[ use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) ]]
+	use({
+		"ibhagwan/fzf-lua",
+		-- optional for icon support
+		requires = { "nvim-tree/nvim-web-devicons" },
+	})
+	use({ "junegunn/fzf", run = "./install --bin" })
 
 	-- Treesitter
 	use({
@@ -110,9 +117,23 @@ return packer.startup(function(use)
 	-- Spectre
 	use("windwp/nvim-spectre")
 
-	-- Copilot
-	--[[ use("github/copilot.vim") ]]
-	-- Doesnt work on node 18
+	-- UI Improvement
+	use({
+		"folke/noice.nvim",
+		config = function()
+			require("noice").setup({
+				-- add any options here
+			})
+		end,
+		requires = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+			"rcarriga/nvim-notify",
+		},
+	})
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

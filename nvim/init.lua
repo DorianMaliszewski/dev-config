@@ -3,7 +3,7 @@ require("user.keymaps")
 require("user.plugins")
 require("user.autocommands")
 require("user.colorscheme")
-require("user.telescope")
+--[[ require("user.telescope") ]]
 require("user.treesitter")
 require("user.autopairs")
 require("user.comment")
@@ -20,3 +20,4 @@ require("user.lsp")
 require("user.cmp")
 require("user.dap")
 require("user.trouble")
+--[[ require("user.noice") ]]
