@@ -7,7 +7,7 @@ if not mason_ok or not mason_lspconfig_ok or not lspconfig_status_ok then
 end
 
 local servers = {
-	"sumneko_lua",
+	"lua_ls",
 	"cssls",
 	"html",
 	"eslint",
@@ -24,7 +24,6 @@ local servers = {
 
 local settings = {
 	ui = {
-		border = "none",
 		icons = {
 			package_installed = "◍",
 			package_pending = "◍",
