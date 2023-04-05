@@ -1,8 +1,9 @@
 local mason_ok, mason = pcall(require, "mason")
 local mason_lspconfig_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+local coq_status_ok, coq = pcall(require, "coq")
 
-if not mason_ok or not mason_lspconfig_ok or not lspconfig_status_ok then
+if not mason_ok or not mason_lspconfig_ok or not lspconfig_status_ok or not coq_status_ok then
 	return
 end
 
@@ -42,7 +43,6 @@ local opts = {}
 for _, server in pairs(servers) do
 	opts = {
 		on_attach = require("user.lsp.handlers").on_attach,
-		capabilities = require("user.lsp.handlers").capabilities,
 	}
 
 	server = vim.split(server, "@")[1]
@@ -52,5 +52,5 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", conf_opts, opts)
 	end
 
-	lspconfig[server].setup(opts)
+	lspconfig[server].setup(coq.lsp_ensure_capabilities(opts))
 end
