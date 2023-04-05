@@ -1,8 +1,14 @@
-local status_ok, _ = pcall(require, "lspconfig")
-if not status_ok then
-	return
-end
+local lsp_settings = require('user.lsp.settings')
+local user_null_ls = require('user.lsp.null_ls')
+local user_lsp_zero = require('user.lsp.lsp_zero')
 
-require("user.lsp.mason")
-require("user.lsp.handlers").setup()
-require("user.lsp.null-ls")
+
+
+
+user_lsp_zero.setup(function()
+  lsp_settings.setup_client("tsserver")
+  lsp_settings.setup_client("lua_ls")
+end)
+
+
+user_null_ls.setup()
