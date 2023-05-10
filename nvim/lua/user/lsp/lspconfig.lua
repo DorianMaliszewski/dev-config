@@ -1,10 +1,32 @@
-local mason_ok, mason = pcall(require, "mason")
-local mason_lspconfig_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 
-if not mason_ok or not mason_lspconfig_ok or not lspconfig_status_ok then
+if not lspconfig_status_ok then
 	return
 end
+
+local config = {
+	update_in_insert = true,
+	underline = true,
+	severity_sort = true,
+	float = {
+		focusable = true,
+		style = "minimal",
+		border = "rounded",
+		source = "always",
+		header = "",
+		prefix = "",
+	},
+}
+
+vim.diagnostic.config(config)
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+	border = "rounded",
+})
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+	border = "rounded",
+})
 
 local servers = {
 	"lua_ls",
@@ -21,21 +43,6 @@ local servers = {
 	"html",
 	"rust_analyzer",
 }
-
-local settings = {
-	ui = {
-		icons = {
-			package_installed = "◍",
-			package_pending = "◍",
-			package_uninstalled = "◍",
-		},
-	},
-	log_level = vim.log.levels.INFO,
-	max_concurrent_installers = 4,
-}
-
-mason.setup(settings)
-mason_lspconfig.setup()
 
 local opts = {}
 

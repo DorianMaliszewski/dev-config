@@ -1,3 +1,5 @@
+local root_pattern = require”lspconfig/util”.root_pattern
+
 return {
 	init_options = {
 		hostInfo = "neovim",
@@ -12,4 +14,5 @@ return {
 	preferences = {
 		importModuleSpecifierPreference = "non-relative",
 	},
+  --[[ root_dir = root_pattern('.git') ]]
 }
