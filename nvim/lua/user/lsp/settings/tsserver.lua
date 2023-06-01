@@ -9,10 +9,10 @@ return {
 		"typescript-language-server",
 		"--stdio",
 		"--tsserver-path",
-		"/Users/dmaliszewski/Library/pnpm/global/5/node_modules/typescript/lib/tsserver.js",
+    "~/.local/share/pnpm/global/5/node_modules/typescript/lib/tsserver.js"
 	},
 	preferences = {
 		importModuleSpecifierPreference = "non-relative",
 	},
-  --[[ root_dir = root_pattern('.git') ]]
+  root_dir = root_pattern('.git')
 }
