@@ -15,19 +15,7 @@ null_ls.setup({
 	sources = {
 		formatting.prettierd,
 		formatting.stylua,
-		formatting.eslint_d,
+		--[[ formatting.eslint, ]]
 		diagnostics.golangci_lint,
 	}, -- you can reuse a shared lspconfig on_attach callback here
-	on_attach = function(client, bufnr)
-		if client.supports_method("textDocument/formatting") then
-			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				group = augroup,
-				buffer = bufnr,
-				callback = function()
-					vim.lsp.buf.format({ bufnr = bufnr, async = false, timeout = 10000 })
-				end,
-			})
-		end
-	end,
 })
