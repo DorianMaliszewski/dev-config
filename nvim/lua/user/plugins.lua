@@ -17,7 +17,7 @@ require("lazy").setup({
 	"folke/lsp-colors.nvim",
 
 	-- Themes
-	"folke/tokyonight.nvim",
+{ 'projekt0n/github-nvim-theme' },
 
 	-- Nvim cmp
 	"hrsh7th/cmp-nvim-lsp",
