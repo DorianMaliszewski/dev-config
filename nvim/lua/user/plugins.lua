@@ -13,7 +13,7 @@ require("lazy").setup({
 	"moll/vim-bbye",
 	"nvim-lualine/lualine.nvim",
 	"ahmedkhalf/project.nvim",
-	"lukas-reineke/indent-blankline.nvim",
+	{"lukas-reineke/indent-blankline.nvim", main = "ibl"},
 	"folke/lsp-colors.nvim",
 
 	-- Themes
@@ -69,5 +69,5 @@ require("lazy").setup({
 
 	-- LSP
 	{ "neovim/nvim-lspconfig", event = { "BufReadPre", "BufNewFile" } },
-	{ "jose-elias-alvarez/null-ls.nvim", event = { "BufReadPre", "BufNewFile" } },
+
 })
