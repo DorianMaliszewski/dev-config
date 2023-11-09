@@ -1,9 +1,9 @@
 require('github-theme').setup({
   options = {
-    transparent = true,
+    transparent = false,
   }
 })
 
 
 -- Set theme here
-vim.cmd.colorscheme("github_dark_dimmed")
+vim.cmd("colorscheme github_dark_dimmed")
