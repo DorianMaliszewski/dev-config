@@ -7,9 +7,7 @@ return {
 	},
 	cmd = {
 		"typescript-language-server",
-		"--stdio",
-		"--tsserver-path",
-    "~/.local/share/pnpm/global/5/node_modules/typescript/lib/tsserver.js"
+		"--stdio"
 	},
 	preferences = {
 		importModuleSpecifierPreference = "non-relative",

@@ -27,7 +27,8 @@ local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 
 	keymap(bufnr, "n", "<leader>cd", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-	keymap(bufnr, "n", "<leader>cf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+  -- Use formatter.nvim
+	keymap(bufnr, "n", "<leader>bf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
 	keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 	keymap(bufnr, "n", "<leader>dn", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)
 	keymap(bufnr, "n", "<leader>dp", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)

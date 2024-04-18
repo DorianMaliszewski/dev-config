@@ -6,7 +6,7 @@ end
 
 npairs.setup({
 	--[[ check_ts = true, -- treesitter integration ]]
-	disable_filetype = { "TelescopePrompt" },
+	disable_filetype = { "TelescopePrompt", "spectre_panel" },
 })
 
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
@@ -21,4 +21,4 @@ if not status_ts then
 	return
 end
 
-autotag.setup({})
+autotag.setup()
