@@ -99,7 +99,7 @@ keymap("v", "<leader>s", "<esc>:lua require('spectre').open_visual()<CR>", opts)
 keymap("n", "<leader>sp", "viw:lua require('spectre').open_file_search()<cr>", opts)
 
 -- Formatter
-keymap("n", "<leader>cf",":Format<cr>")
+keymap("n", "<leader>cf",":Format<CR>", opts)
 
 -- FZF
 --[[ keymap("n", "<leader>ff", "<cmd>lua require('fzf-lua').files()<cr>", opts) ]]
