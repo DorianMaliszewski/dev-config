@@ -42,6 +42,7 @@ local servers = {
 	"golangci_lint_ls",
 	"html",
 	"rust_analyzer",
+  "astro"
 }
 
 local opts = {}

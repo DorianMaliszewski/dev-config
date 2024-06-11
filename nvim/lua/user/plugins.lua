@@ -1,23 +1,42 @@
 require("lazy").setup({
-	"nvim-lua/plenary.nvim", -- Useful lua functions used by lots of plugins
-	"windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
-	"numToStr/Comment.nvim",
+	"nvim-lua/plenary.nvim",
 	"JoosepAlviste/nvim-ts-context-commentstring",
 	"lewis6991/impatient.nvim",
+
+  -- Auto editing
+	{"numToStr/Comment.nvim", lazy = false},
+	{"windwp/nvim-autopairs", event = "InsertEnter"}, 
+	{"lukas-reineke/indent-blankline.nvim", main = "ibl"},
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    config = function()
+        require("nvim-surround").setup({
+        })
+    end
+  },
+	"windwp/nvim-ts-autotag",
+	"fedepujol/move.nvim",
+
+  -- Test dressing
+  "stevearc/dressing.nvim",
 
 	-- Icons
 	"nvim-tree/nvim-web-devicons",
 	"nvim-tree/nvim-tree.lua",
 
-	{ "akinsho/bufferline.nvim", version = "v3.*" },
+  -- Tab
+  {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
+
+
 	"moll/vim-bbye",
 	"nvim-lualine/lualine.nvim",
 	"ahmedkhalf/project.nvim",
-	{"lukas-reineke/indent-blankline.nvim", main = "ibl"},
 	"folke/lsp-colors.nvim",
 
 	-- Themes
-{ 'projekt0n/github-nvim-theme' },
+{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
 	-- Nvim cmp
 	"hrsh7th/cmp-nvim-lsp",
@@ -26,28 +45,30 @@ require("lazy").setup({
 	"hrsh7th/cmp-cmdline",
 	"hrsh7th/nvim-cmp",
 
+  -- Format
+  'mhartington/formatter.nvim',
+
 	-- Lsp Kind
 	"onsails/lspkind.nvim",
 
 	-- Snippets
-	"L3MON4D3/LuaSnip",
-	"rafamadriz/friendly-snippets",
+  {
+    "L3MON4D3/LuaSnip",
+    version = "v2.*",
+    dependencies = { "rafamadriz/friendly-snippets" },
+    build = "make install_jsregexp"
+  },
 
 	-- Finding
-	"ibhagwan/fzf-lua",
-	{ "junegunn/fzf", build = "./install --bin" },
+  {'nvim-telescope/telescope.nvim', tag = '0.1.6'},
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 
 	-- Treesitter
-	"nvim-treesitter/nvim-treesitter",
+	{"nvim-treesitter/nvim-treesitter", build=":TSUpdate"},
 
 	-- Git
 	"lewis6991/gitsigns.nvim",
-
-	-- Auto tag close
-	"windwp/nvim-ts-autotag",
-
-	-- Block/line moves up/down
-	"fedepujol/move.nvim",
+  "sindrets/diffview.nvim",
 
 	-- Trouble
 	"folke/trouble.nvim",
@@ -58,11 +79,9 @@ require("lazy").setup({
 	-- UI Improvement
 	{
 		"folke/noice.nvim",
+    event = "VeryLazy",
 		dependencies = {
 			"MunifTanjim/nui.nvim",
-			-- OPTIONAL:
-			--   `nvim-notify` is only needed, if you want to use the notification view.
-			--   If not available, we use `mini` as the fallback
 			"rcarriga/nvim-notify",
 		},
 	},

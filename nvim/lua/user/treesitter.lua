@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 configs.setup({
+  ensure_installed = {'tsx', 'typescript', 'html', 'go', 'rust', 'css', 'lua'},
 	auto_install = true,
 	highlight = {
 		enable = true, -- false will disable the whole extension

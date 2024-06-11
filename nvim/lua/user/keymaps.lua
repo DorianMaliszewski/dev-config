@@ -57,11 +57,9 @@ keymap("v", ">", ">gv", opts)
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- Telescope
---[[ keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts) ]]
---[[ keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts) ]]
---[[ keymap("n", "<leader>fp", ":SearchSession<CR>", opts) ]]
---[[ keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts) ]]
---[[ keymap("n", "<leader>fe", ":Telescope projects<CR>", opts) ]]
+keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
@@ -70,15 +68,15 @@ keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 --[[ keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts) ]]
 
 -- DAP
-keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
-keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
-keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts)
-keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", opts)
-keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", opts)
-keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
-keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
-keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
-keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
+--[[ keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts) ]]
+--[[ keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts) ]]
+--[[ keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts) ]]
+--[[ keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", opts) ]]
+--[[ keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", opts) ]]
+--[[ keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts) ]]
+--[[ keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts) ]]
+--[[ keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts) ]]
+--[[ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts) ]]
 
 -- Block/Line moves
 keymap("n", "<A-Down>", ":MoveLine(1)<CR>", opts)
@@ -96,12 +94,13 @@ keymap("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", opts)
 
 -- Spectre
 keymap("n", "<leader>S", "<cmd>lua require('spectre').open()<CR>", opts)
--- search current word
 keymap("n", "<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", opts)
 keymap("v", "<leader>s", "<esc>:lua require('spectre').open_visual()<CR>", opts)
--- search in current file
 keymap("n", "<leader>sp", "viw:lua require('spectre').open_file_search()<cr>", opts)
 
+-- Formatter
+keymap("n", "<leader>cf",":Format<CR>", opts)
+
 -- FZF
-keymap("n", "<leader>ff", "<cmd>lua require('fzf-lua').files()<cr>", opts)
-keymap("n", "<leader>ft", "<cmd>lua require('fzf-lua').grep()<cr>", opts)
+--[[ keymap("n", "<leader>ff", "<cmd>lua require('fzf-lua').files()<cr>", opts) ]]
+--[[ keymap("n", "<leader>ft", "<cmd>lua require('fzf-lua').grep()<cr>", opts) ]]
