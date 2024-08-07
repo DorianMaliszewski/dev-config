@@ -5,7 +5,7 @@ require("lazy").setup({
 
   -- Auto editing
 	{"numToStr/Comment.nvim", lazy = false},
-	{"windwp/nvim-autopairs", event = "InsertEnter"}, 
+	{"windwp/nvim-autopairs", event = "InsertEnter"},
 	{"lukas-reineke/indent-blankline.nvim", main = "ibl"},
   {
     "kylechui/nvim-surround",
@@ -36,7 +36,7 @@ require("lazy").setup({
 	"folke/lsp-colors.nvim",
 
 	-- Themes
-{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
 	-- Nvim cmp
 	"hrsh7th/cmp-nvim-lsp",
@@ -46,7 +46,8 @@ require("lazy").setup({
 	"hrsh7th/nvim-cmp",
 
   -- Format
-  'mhartington/formatter.nvim',
+  {'stevearc/conform.nvim', event = { "BufWritePre" }},
+
 
 	-- Lsp Kind
 	"onsails/lspkind.nvim",
@@ -60,9 +61,14 @@ require("lazy").setup({
   },
 
 	-- Finding
-  {'nvim-telescope/telescope.nvim', tag = '0.1.6'},
-  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-
+  { "junegunn/fzf", build = "./install --bin" },
+  {
+    "ibhagwan/fzf-lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("fzf-lua").setup({})
+    end
+  },
 	-- Treesitter
 	{"nvim-treesitter/nvim-treesitter", build=":TSUpdate"},
 

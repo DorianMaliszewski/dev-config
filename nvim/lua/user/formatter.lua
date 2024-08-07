@@ -1,31 +1,14 @@
--- Utilities for creating configurations
-local util = require "formatter.util"
-
-local eslintd_prettierd = {
-        require("formatter.defaults").eslint_d,
-        require("formatter.defaults").prettierd,
-      }
-
--- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
-require("formatter").setup {
-  logging = true,
-  log_level = vim.log.levels.WARN,
-  filetype = {
-    css = { require("formatter.defaults").prettierd },
-    html = { require("formatter.defaults").prettierd },
-    json = { require("formatter.defaults").prettierd },
-    yaml = { require("formatter.defaults").prettierd },
-    javascript = eslintd_prettierd,
-    javascriptreact = eslintd_prettierd,
-    typescript = eslintd_prettierd,
-    typescriptreact =eslintd_prettierd,
-    go = require('formatter.filetypes.go'),
-    rust = require('formatter.filetypes.rust'),
-    lua = {
-      require("formatter.filetypes.lua").stylua,
-    },
-    ["*"] = {
-      require("formatter.filetypes.any").remove_trailing_whitespace
-    }
-  }
-}
+require("conform").setup({
+  formatters_by_ft = {
+    lua = { "stylua" },
+    -- Conform will run multiple formatters sequentially
+    python = { "isort", "black" },
+    -- You can customize some of the format options for the filetype (:help conform.format)
+    rust = { "rustfmt", lsp_format = "fallback" },
+    -- Conform will run the first available formatter
+    javascript = { "biome", "prettierd", "prettier", "eslint_d", stop_after_first = true },
+    typescript = { "biome", "prettierd", "prettier", "eslint_d", stop_after_first = true },
+    javascriptreact = { "biome", "prettierd", "prettier", "eslint_d", stop_after_first = true },
+    typescriptreact = { "biome", "prettierd", "prettier", "eslint_d", stop_after_first = true },
+  },
+})

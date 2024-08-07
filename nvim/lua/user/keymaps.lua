@@ -56,13 +56,8 @@ keymap("v", ">", ">gv", opts)
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
--- Telescope
-keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
-keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
-
 -- Git
-keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
+keymap("n", "<leader>lg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 
 -- Comment
 --[[ keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts) ]]
@@ -99,8 +94,8 @@ keymap("v", "<leader>s", "<esc>:lua require('spectre').open_visual()<CR>", opts)
 keymap("n", "<leader>sp", "viw:lua require('spectre').open_file_search()<cr>", opts)
 
 -- Formatter
-keymap("n", "<leader>cf",":Format<CR>", opts)
+keymap("n", "<leader>cf","<cmd>lua require('conform').format({ async = true })<CR>", opts)
 
 -- FZF
---[[ keymap("n", "<leader>ff", "<cmd>lua require('fzf-lua').files()<cr>", opts) ]]
---[[ keymap("n", "<leader>ft", "<cmd>lua require('fzf-lua').grep()<cr>", opts) ]]
+keymap("n", "<leader>ff", "<cmd>lua require('fzf-lua').files()<cr>", opts)
+keymap("n", "<leader>ft", "<cmd>lua require('fzf-lua').grep()<cr>", opts)
