@@ -29,9 +29,9 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 })
 
 local servers = {
-	"lua_ls",
 	"cssls",
 	"html",
+  "biome",
 	"eslint",
 	"tsserver",
 	"pyright",

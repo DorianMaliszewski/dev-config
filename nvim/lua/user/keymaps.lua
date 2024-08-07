@@ -23,10 +23,10 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+--[[ keymap("n", "<C-Up>", ":resize -2<CR>", opts) ]]
+--[[ keymap("n", "<C-Down>", ":resize +2<CR>", opts) ]]
+--[[ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts) ]]
+--[[ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts) ]]
 
 -- Navigate buffers
 keymap("n", "<Tab>", ":bnext<CR>", opts)
@@ -74,10 +74,10 @@ keymap("n", "<leader>lg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 --[[ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts) ]]
 
 -- Block/Line moves
-keymap("n", "<A-Down>", ":MoveLine(1)<CR>", opts)
-keymap("n", "<A-Up>", ":MoveLine(-1)<CR>", opts)
-keymap("v", "<A-Down>", ":MoveBlock(1)<CR>", opts)
-keymap("v", "<A-Up>", ":MoveBlock(-1)<CR>", opts)
+keymap("n", "<C-Down>", ":MoveLine(1)<CR>", opts)
+keymap("n", "<C-Up>", ":MoveLine(-1)<CR>", opts)
+keymap("v", "<C-Down>", ":MoveBlock(1)<CR>", opts)
+keymap("v", "<C-Up>", ":MoveBlock(-1)<CR>", opts)
 
 -- Trouble
 keymap("n", "<leader>xx", "<cmd>TroubleToggle<cr>", opts)
