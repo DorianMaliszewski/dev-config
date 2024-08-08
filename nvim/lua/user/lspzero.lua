@@ -1,7 +1,7 @@
 local lsp_zero = require("lsp-zero")
 
 local lsp_attach = function(_, bufnr)
-	local opts = { noremap = true, silent = true, buffer = bufnr }
+	local opts = { noremap = true, silent = true }
 	local keymap = vim.api.nvim_buf_set_keymap
 	keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 	keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
@@ -33,7 +33,7 @@ require("mason-lspconfig").setup({
 	ensure_installed = { "lua_ls", "eslint", "tsserver", "biome" },
 	handlers = {
 		function(server_name)
-			lsp_zero[server_name].setup({})
+        require('lspconfig')[server_name].setup({})
 		end,
 	},
 })

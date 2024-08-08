@@ -1,4 +1,4 @@
-local root_pattern = require”lspconfig/util”.root_pattern
+local root_pattern = require("lspconfig/util").root_pattern
 
 return {
 	init_options = {
