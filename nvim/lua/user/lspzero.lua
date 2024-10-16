@@ -1,6 +1,9 @@
 local lsp_zero = require("lsp-zero")
 
-local lsp_attach = function(_, bufnr)
+vim.opt.updatetime = 750
+
+local lsp_attach = function(client, bufnr)
+  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 	local opts = { noremap = true, silent = true }
 	local keymap = vim.api.nvim_buf_set_keymap
 	keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
@@ -19,6 +22,8 @@ local lsp_attach = function(_, bufnr)
 	keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 	keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
 	keymap(bufnr, "n", "<leader>lI", "<cmd>LspInstallInfo<cr>", opts)
+
+  client.config.flags = {allow_incremental_sync = true, debounce_text_changes = 200}
 end
 
 lsp_zero.extend_lspconfig({
