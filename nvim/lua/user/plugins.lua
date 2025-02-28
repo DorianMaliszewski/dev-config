@@ -1,100 +1,40 @@
 require("lazy").setup({
-	"nvim-lua/plenary.nvim",
-	"JoosepAlviste/nvim-ts-context-commentstring",
-	"lewis6991/impatient.nvim",
-
+  require('user.treesitter'),
+  require('user.impatient'),
+  "nvim-lua/plenary.nvim",
+  "moll/vim-bbye",
+  "nvim-tree/nvim-web-devicons",
+  "folke/lsp-colors.nvim",
+  require('user.lualine'),
+  require('user.theme'),
+  "onsails/lspkind.nvim",
+  require('user.trouble'),
+  require('user.markdown'),
+  require('user.lspzero'),
+  require('user.linter'),
+  require('user.formatter'),
+  require('user.snacks'),
+  require('user.whichkey'),
+  require('user.move'),
   -- Auto editing
-	{"numToStr/Comment.nvim", lazy = false},
-	{"windwp/nvim-autopairs", event = "InsertEnter"},
-	{"lukas-reineke/indent-blankline.nvim", main = "ibl"},
+  {
+    "numToStr/Comment.nvim",
+    dependencies = 'JoosepAlviste/nvim-ts-context-commentstring',
+    init = function()
+      require('Comment').setup({
+        pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+      })
+    end
+  },
+  require('user.indentline'),
   {
     "kylechui/nvim-surround",
     version = "*",
     event = "VeryLazy",
-    config = function()
-        require("nvim-surround").setup({
-        })
+    init = function()
+      require("nvim-surround").setup({
+      })
     end
   },
-	"windwp/nvim-ts-autotag",
-	"fedepujol/move.nvim",
 
-  -- Test dressing
-  "stevearc/dressing.nvim",
-
-	-- Icons
-	"nvim-tree/nvim-web-devicons",
-	"nvim-tree/nvim-tree.lua",
-
-  -- Tab
-  {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
-
-
-	"moll/vim-bbye",
-	"nvim-lualine/lualine.nvim",
-	"ahmedkhalf/project.nvim",
-	"folke/lsp-colors.nvim",
-
-	-- Themes
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-
-  -- Format
-  {'stevearc/conform.nvim', event = { "BufWritePre" }},
-
-
-	-- Lsp Kind
-	"onsails/lspkind.nvim",
-
-	-- Snippets
-  {
-    "L3MON4D3/LuaSnip",
-    version = "v2.*",
-    dependencies = { "rafamadriz/friendly-snippets" },
-    build = "make install_jsregexp"
-  },
-
-	-- Finding
-  { "junegunn/fzf", build = "./install --bin" },
-  {
-    "ibhagwan/fzf-lua",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("fzf-lua").setup({})
-    end
-  },
-	-- Treesitter
-	{"nvim-treesitter/nvim-treesitter", build=":TSUpdate"},
-
-	-- Git
-	"lewis6991/gitsigns.nvim",
-  "sindrets/diffview.nvim",
-
-	-- Trouble
-	"folke/trouble.nvim",
-
-	-- Spectre
-	"windwp/nvim-spectre",
-
-	-- UI Improvement
-	{
-		"folke/noice.nvim",
-    event = "VeryLazy",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
-		},
-	},
-
-	-- LSP
-  {'VonHeikemen/lsp-zero.nvim', branch = 'v4.x'},
-  {'williamboman/mason.nvim'},
-  {'williamboman/mason-lspconfig.nvim'},
-  {'neovim/nvim-lspconfig'},
-  {'L3MON4D3/LuaSnip'},
-  {'hrsh7th/nvim-cmp'},
-  {'hrsh7th/cmp-nvim-lsp'},
-  {'hrsh7th/cmp-buffer'},
-  {'hrsh7th/cmp-path'},
-  {'saadparwaiz1/cmp_luasnip'},
-  {'rafamadriz/friendly-snippets'},
 })
