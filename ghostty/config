@@ -43,6 +43,6 @@
 # resize-overlay-duration = 4s 200ms
 theme = Breeze
 font-family = Cascadia Code
-background-opacity = 0.9
+background-opacity = 0.70
 background-blur = true
 window-decoration = none
